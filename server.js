@@ -1,25 +1,19 @@
 require('dotenv').config();
 // setting up express Server
 const express = require('express');
-const app = express();
-
-
-
-const router = express.Router();
 const path = require('path');
 const axios = require("axios");
-
-
 const overview = require("./routes/a-overview");
 const income = require("./routes/a-income");
 const balanace = require("./routes/a-balance");
 const cashflow = require("./routes/a-cashflow");
 const health = require("./routes/a-sectorhealth");
 const crypto = require("./routes/a-crypto-exchange");
-
-
 const cors = require('cors');
 const Mongoose = require('mongoose');
+
+const app = express();
+const router = express.Router();
 
 // Connect to the MongoDB Database
 app.use(cors());
@@ -42,7 +36,6 @@ connectDB(); */
 app.use(express.json({ extended: false}))
 
 
-
 // to avoid cors error, give permission ot front end
 app.use(
   cors({
@@ -51,9 +44,6 @@ app.use(
     credentials: true,
   })
 );
-
-
-
 
 
 // Define Routes
@@ -76,31 +66,3 @@ app.use((req, res, next, err) => {
 // Setting up the port
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

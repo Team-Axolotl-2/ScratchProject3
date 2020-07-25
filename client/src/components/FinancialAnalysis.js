@@ -12,13 +12,13 @@ class FinancialAnalysis extends Component {
   componentDidMount() {
     axios.get('/api/overview')
       .then(res => {
-        console.log(res);
+        console.log('res.data', res.data);
       })
   }
  
   render() {
 
-   console.log('dat data', data);
+  //  console.log('dat data', data);
 
   const rawStats = {
     'EPS': Math.round(data.EPS * 100)/100,
@@ -44,7 +44,7 @@ class FinancialAnalysis extends Component {
     const outputStats = [];
     let index = 0;
     for (let key in rawStats) {
-      outputStats.push(<li index={index} onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
+      outputStats.push(<li index={index}>
         {key}: {rawStats[key]}
         </li>)
         index += 1;
