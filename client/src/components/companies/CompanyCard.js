@@ -1,19 +1,76 @@
 // Create the card for each individual company// Create the list of companies
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-// Create a loop, that will create many company cards
-class CompanyCard extends Component {
-  constructor(props) {
-    super(props);
-  }
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
-  render() {
-    return <div>{this.props.companyName}</div>;
-    // Start w/ company name
+export default function CompanyCard(props) {
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
 
-    // Preview (STRETCH FEATURE)
-  }
+  return (
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color="textSecondary"
+          gutterBottom
+        >
+          Stock Info
+        </Typography>
+        <Typography variant="h5" component="h2">
+          {props.companyName}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          Tech Sector (maybe)
+        </Typography>
+        <Typography variant="body2" component="p">
+          Stock info goes here
+          <br />
+          More stock info
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
 }
 
-export default CompanyCard;
+// import { Link } from 'react-router-dom';
+
+// // Create a loop, that will create many company cards
+// class CompanyCard extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     return <div>{this.props.companyName}</div>;
+//     // Start w/ company name
+
+//     // Preview (STRETCH FEATURE)
+//   }
+// }
+
+//export default CompanyCard;
