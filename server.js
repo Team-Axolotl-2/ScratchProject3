@@ -8,9 +8,7 @@ app.use(cors());
 
 
 // Connect to the MongoDB Database
-
-
-
+const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 
 
@@ -21,7 +19,7 @@ app.use(express.json({ extended: false}))
 
 // to avoid cors error, give permission ot front end
 app.use(
-  corse({
+  cors({
     origin: '',
     methods:'',
     credentials: true,
@@ -40,6 +38,16 @@ app.use(
 // Setting up the port
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+
+
+
+
+
+
+
+
+
+
 
 
 
