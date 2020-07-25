@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PriceGraph from '../components/PriceGraph'
+import FinancialAnalysis from '../components/FinancialAnalysis'
+import HealthData from '../components/HealthData'
 
 
 import clsx from 'clsx';
@@ -171,13 +173,13 @@ const CompanyProfile = () => {
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                {/* <Deposits /> */}
+                <FinancialAnalysis/>
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {/* <Orders /> */}
+                <HealthData/>
               </Paper>
             </Grid>
           </Grid>

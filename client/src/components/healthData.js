@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const HealthData = () => {
   return (
     <div>
-      Financial analysis Component
+      Health Data
     </div>
   )
 }
