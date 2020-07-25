@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Register = () => {
   return (
     <div>
-      Hello
+      Register Page
     </div>
   )
 }

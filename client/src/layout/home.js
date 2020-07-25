@@ -153,7 +153,7 @@ const Home = () => {
           >
             Dashboard
           </Typography>
-          <Link to = "login">
+          <Link to = "register">
           <Typography
             component="h1"
             variant="h6"
@@ -163,8 +163,6 @@ const Home = () => {
           >
             Login
           </Typography>
-            
-            
           </Link>
           
         </Toolbar>
