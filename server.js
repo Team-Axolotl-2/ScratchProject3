@@ -33,8 +33,7 @@ const connectDB = async () => {
 connectDB(); */
 
 // Initialize universal middleware
-app.use(express.json({ extended: false}))
-
+app.use(express.json({ extended: false }));
 
 // to avoid cors error, give permission ot front end
 app.use(
@@ -42,27 +41,25 @@ app.use(
     origin: 'http://localhost:8080',
     methods:'GET,HEAD,PUT,PATCH,POST,DELETEGET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-  })
+  }),
 );
 
-
 // Define Routes
-app.use("/api/",
+app.use('/api/',
   overview,
   income,
   balanace,
   cashflow,
   health,
-  crypto
-)
+  crypto,
+);
 
 app.use((req, res, next, err) => {
-  if(err){
-    console.log(`ERROR at use: ` )
+  if (err) {
+    console.log(`ERROR at use: ` );
   }
 });
 
-
 // Setting up the port
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
