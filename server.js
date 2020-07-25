@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 const cors = require('cors');
-const { Mongoose } = require('mongoose');
+const Mongoose = require('mongoose');
 
 // Connect to the MongoDB Database
 app.use(cors());
