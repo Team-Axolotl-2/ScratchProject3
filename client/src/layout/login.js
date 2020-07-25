@@ -34,7 +34,6 @@ const Login = () => {
             'Content-Type': 'application/json'
           }
         }
-       
         const body = JSON.stringify(newUser);
         console.log(body)
         const res =  await axios.post('http://localhost:3000/api/users', body, config); // make axios post requests
@@ -68,12 +67,13 @@ const Login = () => {
             value={password} onChange={e => onChange(e)}
           />
         </div>
+          <input type="submit" className="btn btn-primary" value="Authenticate" />
         <Link to = "/">
-          <input type="submit" className="btn btn-primary" value="Login" />
+          <input type="submit" className="btn btn-primary" value="Go To Dashboard" />
         </Link>
       </form>
       <p className="my-1">
-        Already have an account? <Link to="login">Sign In</Link>
+        Don't have an account? <Link to="register">register</Link>
       </p>
     </Fragment>
   )
