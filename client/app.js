@@ -23,7 +23,6 @@ const App = () =>  {
       <Route exact path = "/login" component = {login} />
       <Route exact path = "/register" component = {register} />
     </Router>
-    
   )
 }
 

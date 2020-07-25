@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/anthonylin198/ScratchProject-1#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
