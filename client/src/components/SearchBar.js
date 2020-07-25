@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const HealthData = () => {
+const SearchBar = () => {
   return (
     <div>
-      Financial analysis Component
+      Search Bar Component
     </div>
   )
 }
 
-export default HealthData
+export default SearchBar

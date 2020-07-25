@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PriceGraph from '../components/PriceGraph'
+import SearchBar from '../components/SearchBar'
 
 
 import clsx from 'clsx';
@@ -21,7 +23,7 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems.js';
+import { mainListItems, secondaryListItems } from './ListItems.js';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -160,11 +162,16 @@ const Home = () => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+           <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <SearchBar/>
+              </Paper>
+            </Grid>
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                {/* <Chart /> */}
+                <PriceGraph/>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
@@ -180,9 +187,6 @@ const Home = () => {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            {/* <Copyright /> */}
-          </Box>
         </Container>
       </main>
     </div>
