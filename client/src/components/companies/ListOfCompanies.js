@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 
+
 // Create a loop, that will create many company cards
 class ListOfCompanies extends Component {
   render(){
