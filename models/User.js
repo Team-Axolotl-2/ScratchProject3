@@ -15,10 +15,4 @@ const UserSchema = new mongoose.Schema({
     }
   ]
 
-
-
-
-
-
-
 })
