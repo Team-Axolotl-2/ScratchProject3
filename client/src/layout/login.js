@@ -22,6 +22,7 @@ const Login = () => {
   // Function that will submit to database
   const onSubmit =  async e => {
     e.preventDefault();
+    console.log("hello")
       // logging in the user, if exists, just get access to the data and prop drill through
       const newUser = {
         email,
@@ -38,7 +39,7 @@ const Login = () => {
         console.log(body)
         const res =  await axios.post('http://localhost:3000/api/users', body, config); // make axios post requests
         console.log(res.data)
-        // need to figure out redirect
+        // need to figure out redirect -- doesn't work for some reason
         return <Redirect to = "/"/>
       } catch(err){
         console.error(err.response);
@@ -67,7 +68,9 @@ const Login = () => {
             value={password} onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
+        <Link to = "/">
+          <input type="submit" className="btn btn-primary" value="Login" />
+        </Link>
       </form>
       <p className="my-1">
         Already have an account? <Link to="login">Sign In</Link>

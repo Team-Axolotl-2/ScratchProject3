@@ -44,7 +44,7 @@ const Register = () => {
         const res =  await axios.post('http://localhost:3000/api/users', body, config); // make axios post requests
         console.log(res.data)
         // need to figure out redirect
-        return <Redirect to = "/"/>
+        return <Redirect to = "#/"/>
       } catch(err){
         console.error(err.response);
       }
@@ -52,8 +52,8 @@ const Register = () => {
   }
 
   
+// jsut create a go to dashboard
 
-  
 
   return (
     <Fragment>

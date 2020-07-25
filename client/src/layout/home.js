@@ -115,7 +115,7 @@ const Home = () => {
 
 
 
-  
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -156,7 +156,7 @@ const Home = () => {
           >
             Dashboard
           </Typography>
-          <Link to = "register">
+          <Link to = "login">
           <Typography
             component="h1"
             variant="h6"
