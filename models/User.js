@@ -11,7 +11,10 @@ const UserSchema = new mongoose.Schema({
   },
   favorites:[
     {
-
+      ticker: {
+        type: String,
+        required: true
+      }
     }
   ]
 
