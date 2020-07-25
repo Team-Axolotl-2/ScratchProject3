@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 
+const path = require('path')
+
 const cors = require('cors');
 const Mongoose = require('mongoose');
 
@@ -35,6 +37,10 @@ app.use(
     credentials: true,
   })
 );
+
+
+
+
 
 // Define Routes
 
