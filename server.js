@@ -1,9 +1,10 @@
 // setting up express Server
 const express = require('express');
 const app = express();
-
-const path = require('path')
-
+const router = express.Router();
+const path = require('path');
+const axios = require("axios");
+require('dotenv').config()
 const cors = require('cors');
 const Mongoose = require('mongoose');
 
@@ -43,9 +44,8 @@ app.use(
 
 
 // Define Routes
-
 app.use("/api", (req, res, next) => {
-    
+
 })
 
 
