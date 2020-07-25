@@ -184,28 +184,28 @@ const Home = () => {
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Link to="CompanyProfile">
+                <Link to="companyprofile">
                   <ListItem button>Company Name 1</ListItem>
                 </Link>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Link to="CompanyProfile">
+                <Link to="companyprofile">
                   <ListItem button>Company Name 2</ListItem>
                 </Link>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Link to="CompanyProfile">
+                <Link to="companyprofile">
                   <ListItem button>Company Name 3</ListItem>
                 </Link>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <Link to="CompanyProfile">
+                <Link to="companyprofile">
                   <ListItem button>Company Name 4</ListItem>
                 </Link>
               </Paper>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const SearchBar = () => {
   return (
     <div>
-      Search Bar Component
+      Search Bar And Add Component
     </div>
   )
 }
