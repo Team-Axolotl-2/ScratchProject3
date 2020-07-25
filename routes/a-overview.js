@@ -8,7 +8,7 @@ const path = require('path');
 const axios = require("axios");
 
 const URL = process.env.AAURL;
-const KEY = process.env.AAKEY;
+const KEY = process.env.AAAPI;
 const func = "OVERVIEW";
 
 //Build consumable AlphaAdvantage url
@@ -19,26 +19,22 @@ const request_payload = (symbol) => `${URL}function=${func}&symbol=${symbol}&api
 router.get("/overview", (req, res, next) => {
 
   //we need to capture query parameters to pass to the API;
-  const query = req.params;
-
-  console.log(`Query params ${query}; symbol ${query.symbol}`);
-
+  const query = req.query;
   const finalRequest = request_payload(query.symbol);
-  
-  console.log(`finalRequest: ${finalRequest}`);
   
   axios.get(finalRequest)
   .then(
-    (resp) => {
+    (response) => {
       //log api request for testing
-      console.log(`AA API response ${resp}`);
-      res.status(200).send(resp.body); 
+      console.log(`AA API response ${response.data}`);
+      res.status(200).send(response.data); 
     },
     (err) => {
       console.log(`ERROR: api request to ${func} failed with; ERR ${err}`);
       next(err);
     }
-  );
+  )
+  .catch(err => console.error("ERROR LOG BODY: ", err) )
 
 })
 
