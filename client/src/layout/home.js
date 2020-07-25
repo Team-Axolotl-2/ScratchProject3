@@ -110,10 +110,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Home = () => {
+const Home = (props) => {
   // Setting up Material UI Styling
-
-
+  console.log(props)
 
 
   const classes = useStyles();

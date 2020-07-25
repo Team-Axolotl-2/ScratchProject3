@@ -36,14 +36,13 @@ const Login = () => {
         }
         const body = JSON.stringify(newUser);
         console.log(body)
+        // makes the post request
         const res =  await axios.post('http://localhost:3000/api/users', body, config); // make axios post requests
         console.log(res.data)
         // need to figure out redirect -- doesn't work for some reason
-        return <Redirect to = "/"/>
       } catch(err){
         console.error(err.response);
       }
-    
   }
 
   
@@ -67,10 +66,16 @@ const Login = () => {
             value={password} onChange={e => onChange(e)}
           />
         </div>
-          <input type="submit" className="btn btn-primary" value="Authenticate" />
-        <Link to = "/">
+        {/* just authenticates */}
+          <input type="submit" className="btn btn-primary" value="Authenticate" /> 
+          {/* Takes user to the dashboard, passing the email as the props */}
+        <Link to = {{
+          pathname: "/",
+          username: email
+          }}>
           <input type="submit" className="btn btn-primary" value="Go To Dashboard" />
         </Link>
+        
       </form>
       <p className="my-1">
         Don't have an account? <Link to="register">register</Link>
