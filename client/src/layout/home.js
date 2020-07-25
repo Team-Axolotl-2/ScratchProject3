@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Landing = () => {
+const Home = () => {
   return (
     <div>
       Hello
     </div>
   )
 }
+
+
+
+export default Home;

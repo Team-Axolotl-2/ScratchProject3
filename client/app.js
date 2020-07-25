@@ -3,10 +3,10 @@ const ReactDOM = require('react-dom');
 
 
 // importing different pages for routing
-import companyProfile from './layout/companyProfile';
-import home from './layout/home';
-import login from './layout/login';
-import register from './layout/register';
+// import CompanyProfile from './layout/CompanyProfile';
+// import Home from './layout/Home';
+// import Login from './layout/Login';
+// import Register from './layout/Register';
 
 
 
@@ -18,10 +18,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 const App = () =>  {
   return (
     <Router>
-      <Route exact path = "/" component = {home} />
-      <Route exact path = "/companyProfile" component = {companyProfile} />
-      <Route exact path = "/login" component = {login} />
-      <Route exact path = "/register" component = {register} />
+      <Route exact path = "/" component = {Home} />
+      <Route exact path = "/companyProfile" component = {CompanyProfile} />
+      <Route exact path = "/login" component = {Login} />
+      <Route exact path = "/register" component = {Register} />
     </Router>
   )
 }
