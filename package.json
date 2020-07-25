@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\" \"nodemon server/server.js\""
+    "dev": "cross-env NODE_ENV=development concurrently \"webpack-dev-server --open\" \"nodemon server.js\""
   },
   "nodemonConfig": {
     "ignore": [
@@ -28,6 +28,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "html-webpack-plugin": "^4.3.0",
     "mongoose": "^5.9.25",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",

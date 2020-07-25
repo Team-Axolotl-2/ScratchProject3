@@ -1,4 +1,5 @@
 const path = require('path');
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './client/index.js',
@@ -11,11 +12,17 @@ module.exports = {
   
   devServer: {
     hot: true,
-    publicPath: '/build/',
-    // proxy: {
-    //   '/' : 'http://localhost:3000/'
-    // }
+    //publicPath: '/build/',
+    proxy: {
+      '/' : 'http://localhost:3000/'
+    }
   },
+
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: "./client/public/index.html",
+    }),
+  ],
 
 
   

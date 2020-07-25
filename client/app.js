@@ -3,10 +3,10 @@ const ReactDOM = require('react-dom');
 
 
 // importing different pages for routing
-// import CompanyProfile from './layout/CompanyProfile';
-// import Home from './layout/Home';
-// import Login from './layout/Login';
-// import Register from './layout/Register';
+import CompanyProfile from './src/layout/CompanyProfile';
+import Home from './src/layout/Home';
+import Login from './src/layout/Login';
+import Register from './src/layout/Register';
 
 
 

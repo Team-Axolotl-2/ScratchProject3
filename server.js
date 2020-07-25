@@ -30,8 +30,8 @@ app.use(express.json({ extended: false}))
 // to avoid cors error, give permission ot front end
 app.use(
   cors({
-    origin: '',
-    methods:'',
+    origin: 'http://localhost:8080',
+    methods:'GET,HEAD,PUT,PATCH,POST,DELETEGET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   })
 );
