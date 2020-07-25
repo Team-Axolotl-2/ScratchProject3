@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 const ReactDOM = require('react-dom');
+import "@babel/polyfill";
 
 
 // importing different pages for routing
