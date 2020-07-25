@@ -153,7 +153,20 @@ const Home = () => {
           >
             Dashboard
           </Typography>
-          Login
+          <Link to = "login">
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            Login
+          </Typography>
+            
+            
+          </Link>
+          
         </Toolbar>
       </AppBar>
       <Drawer
