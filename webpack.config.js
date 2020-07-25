@@ -1,8 +1,10 @@
 const path = require('path');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+require("babel-core/register");
+require("babel-polyfill");
 
 module.exports = {
-  entry: './client/index.js',
+  entry: ['babel-polyfill','./client/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
