@@ -3,14 +3,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Register = () => {
+const Settings = () => {
   return (
     <div>
-      Register Page
+      Settings Page
     </div>
   )
 }
 
-
-
-export default Register
+export default Settings

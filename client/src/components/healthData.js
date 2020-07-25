@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const healthData = () => {
+const HealthData = () => {
   return (
     <div>
-      Financial analysis Component
+      Health Data
     </div>
   )
 }
 
-export default healthData
+export default HealthData

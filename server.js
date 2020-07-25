@@ -2,8 +2,10 @@
 const express = require('express');
 const app = express();
 
+const path = require('path')
+
 const cors = require('cors');
-const { Mongoose } = require('mongoose');
+const Mongoose = require('mongoose');
 
 // Connect to the MongoDB Database
 app.use(cors());
@@ -35,6 +37,10 @@ app.use(
     credentials: true,
   })
 );
+
+
+
+
 
 // Define Routes
 

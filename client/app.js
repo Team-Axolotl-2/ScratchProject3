@@ -7,6 +7,7 @@ import CompanyProfile from './src/layout/CompanyProfile';
 import Home from './src/layout/Home';
 import Login from './src/layout/Login';
 import Register from './src/layout/Register';
+import Settings from './src/layout/Settings';
 
 
 
@@ -19,9 +20,10 @@ const App = () =>  {
   return (
     <Router>
       <Route exact path = "/" component = {Home} />
-      <Route exact path = "/companyProfile" component = {CompanyProfile} />
+      <Route exact path = "/companyprofile" component = {CompanyProfile} />
       <Route exact path = "/login" component = {Login} />
       <Route exact path = "/register" component = {Register} />
+      <Route exact path = "/settings" component = {Settings} />
     </Router>
   )
 }
