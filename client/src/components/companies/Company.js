@@ -1,0 +1,1 @@
+// Create the card for each individual company
