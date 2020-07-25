@@ -22,7 +22,7 @@ class App extends Component {
         'Third hardcode fake',
       ],
     };
-    this.onSearchClick = this.onSearchClick.bind(this);
+    //this.onSearchClick = this.onSearchClick.bind(this);
   }
   render() {
     return (
@@ -46,15 +46,15 @@ class App extends Component {
     );
   }
 
-  onSearchClick(e) {
-    const output = this.state.companyListArray;
-    if (output.includes(e.target.company)) {
-      alert('Company has already been added.');
-      return;
-    }
-    output.push(e.target.company);
-    this.setState({ companyListArray: output });
-  }
+  // onSearchClick(e) {
+  //   const output = this.state.companyListArray;
+  //   if (output.includes(e.target.company.value)) {
+  //     alert('Company has already been added.');
+  //     return;
+  //   }
+  //   output.push(e.target.company.value);
+  //   this.setState({ companyListArray: output });
+  // }
 }
 
 export default App;
