@@ -37,7 +37,7 @@ export const secondaryListItems = (
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="settings" />
+      <ListItemText primary="Settings" />
     </ListItem>
     </Link>
   </div>
