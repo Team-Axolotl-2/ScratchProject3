@@ -44,7 +44,9 @@ app.use(
 
 // Define Routes
 
-
+app.use("/api", (req, res, next) => {
+    
+})
 
 
 
