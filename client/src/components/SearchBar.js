@@ -6,6 +6,7 @@ const SearchBar = () => {
     <div>
       Search Bar And Add Component
       <input></input>
+      <button>Add Company</button>
     </div>
   )
 }
