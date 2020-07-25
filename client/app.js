@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 //import React, { Component } from 'react';
 const ReactDOM = require('react-dom');
+import "@babel/polyfill";
 
 // importing different pages for routing
 import CompanyProfile from './src/layout/CompanyProfile';

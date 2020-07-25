@@ -7,15 +7,13 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
-
   mode: process.env.NODE_ENV,
-  
   devServer: {
     hot: true,
     //publicPath: '/build/',
     proxy: {
-      '/' : 'http://localhost:3000/'
-    }
+      '/api' : 'http://localhost:3000/',
+    },
   },
 
   plugins: [
@@ -23,9 +21,6 @@ module.exports = {
       template: "./client/public/index.html",
     }),
   ],
-
-
-  
   module: {
     rules : [
       {
@@ -35,8 +30,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-          }
-        }
+          },
+        },
       },
       {
         test: /.(css|scss)$/,
@@ -44,12 +39,12 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
-      }
-    ]
-  },  
+          'sass-loader',
+        ],
+      },
+    ],
+  },
   resolve: {
-    extensions: ['.js', '.jsx']
-  }
+    extensions: ['.js', '.jsx'],
+  },
 }
