@@ -6,7 +6,8 @@ import { Link, Redirect } from 'react-router-dom'
 
 const Register = () => {
 
-  // essentially your state, with the this.setState
+  // essentially your state, with the this.setState. Use State returns 2 vals
+  // set form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,9 +18,10 @@ const Register = () => {
 
   const {name, email, password, password2} = formData; // destructuring the values in the form
 
+  // set the form data, but update the target val
   const onChange = e => setFormData({...formData, [e.target.name]: e.target.value}); // for tracking changes in the form
 
-
+  // Function that will submit to database
   const onSubmit =  async e => {
     e.preventDefault();
     if(password !== password2) {
@@ -42,12 +44,14 @@ const Register = () => {
         const res =  await axios.post('http://localhost:3000/api/users', body, config); // make axios post requests
         console.log(res.data)
         // need to figure out redirect
-        return <Redirect to = '/'/>
+        return <Redirect to = "/"/>
       } catch(err){
         console.error(err.response);
       }
     }
   }
+
+  
 
   
 
