@@ -110,7 +110,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 const Home = () => {
+  // Setting up Material UI Styling
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -120,7 +122,9 @@ const Home = () => {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  return (
+
+  return ( // Returning the actual content
+    // Side Menu
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
@@ -172,13 +176,12 @@ const Home = () => {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              <SearchBar />
-            </Paper>
-          </Grid>
           <Grid container spacing={3}>
-            {/* Chart */}
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <SearchBar />
+              </Paper>
+            </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Link to="CompanyProfile">
@@ -206,10 +209,6 @@ const Home = () => {
                   <ListItem button>Company Name 4</ListItem>
                 </Link>
               </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>{/* <Orders /> */}</Paper>
             </Grid>
           </Grid>
         </Container>
