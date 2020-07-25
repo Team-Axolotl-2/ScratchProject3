@@ -5,6 +5,7 @@ const SearchBar = () => {
   return (
     <div>
       Search Bar And Add Component
+      <input></input>
     </div>
   )
 }
