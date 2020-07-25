@@ -11,12 +11,13 @@ const Mongoose = require('mongoose');
 app.use(cors());
 
 
-// Connect to the MongoDB Database
+// ! Connecting to the MongoDB Database
 const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const connectDB = async () => {
   try{
-    await Mongoose.connect(db)
+    await Mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
+    console.log("MongoDB Connected...")
   } catch(err){
     console.error(err.message)
   }
@@ -40,9 +41,9 @@ app.use(
 
 
 
+//! Define Routes
 
-
-// Define Routes
+app.use('/api/users', require('./routes/api/users'))
 
 
 
