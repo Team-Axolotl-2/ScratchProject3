@@ -114,6 +114,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const CompanyProfile = () => {
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
