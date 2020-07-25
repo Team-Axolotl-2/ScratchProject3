@@ -19,18 +19,19 @@ const router = express.Router();
 app.use(cors());
 
 
-// Connect to the MongoDB Database
-/* const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
+// ! Connecting to the MongoDB Database
+const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const connectDB = async () => {
   try{
-    await Mongoose.connect(db)
+    await Mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
+    console.log("MongoDB Connected...")
   } catch(err){
     console.error(err.message)
   }
 }
 
-connectDB(); */
+connectDB();
 
 // Initialize universal middleware
 app.use(express.json({ extended: false }));
@@ -43,6 +44,10 @@ app.use(
     credentials: true,
   }),
 );
+
+
+app.use('/api/users', require('./routes/api/users'))
+
 
 // Define Routes
 app.use('/api/',
