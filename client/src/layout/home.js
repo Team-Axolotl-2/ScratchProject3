@@ -1,8 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PriceGraph from '../components/PriceGraph';
 import SearchBar from '../components/SearchBar';
 import ListOfCompanies from '../components/companies/ListOfCompanies';
+import axios from 'axios'
 
 // IMPORTS FOR MATERIAL UI
 import ListItem from '@material-ui/core/ListItem';
@@ -108,8 +109,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Home = (props) => {
   // Setting up Material UI Styling
+  useEffect(() => {
+    props.getUser()
+  },[]);
+
+  // props.location.email is from the email and login page
+  const fetchUser = async () => {
+
+  }
+  
+  
+
   console.log("this is email " + props.location.email)
 
 

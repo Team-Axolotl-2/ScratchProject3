@@ -9,20 +9,22 @@ import Home from './src/layout/Home';
 import Login from './src/layout/Login';
 import Register from './src/layout/Register';
 import Settings from './src/layout/Settings';
-import axios from 'axios'
+
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// create function to set the initial state. 
+
+
+
 
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = { // setting the default state
       name: '',
-      email: '',
+      email: this.props.email,
       companyListArray: [
         'Company 1',
         'Company 2',
@@ -35,8 +37,10 @@ class App extends Component {
       depthLevel: 1,
     };
     this.onSearchClick = this.onSearchClick.bind(this);
+    this.getUser = this.getUser.bind(this)
   }
   render() {
+    console.log(this.state) // test to console.log the state
     return (
       <Router>
         <Route
@@ -47,6 +51,7 @@ class App extends Component {
               {...props}
               companyListArray={this.state.companyListArray}
               onSearchClick={this.onSearchClick}
+              getUser={this.getUser}
             />
           )}
         />
@@ -73,6 +78,21 @@ class App extends Component {
 
 
   // function to delete cards from the array
+
+
+  // create function that will pull user's state
+  getUser(obj){
+    // create conditional, if the object is undefined, just use the default
+
+
+    // else, we will update the state
+
+    // must have set state in here
+    this.setState({ companyListArray: ['Company 1', 'Company 2', 'Company 3'] });
+  }
+
+
+  
 }
 
 export default App;
