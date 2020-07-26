@@ -30,7 +30,7 @@ class App extends Component {
       <Router>
         <Route
           exact
-          path="/"
+          path="/a"
           render={(props) => (
             <Home
               {...props}
@@ -41,7 +41,7 @@ class App extends Component {
         />
         <Route exact path="/companyprofile" component={CompanyProfile} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <Route exact path="/" component={Register} />
         <Route exact path="/settings" component={Settings} />
       </Router>
     );
