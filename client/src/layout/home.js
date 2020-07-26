@@ -110,7 +110,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = (props) => {
   // Setting up Material UI Styling
-  console.log(props)
+  console.log("this is email " + props.location.email)
 
 
   const classes = useStyles();
