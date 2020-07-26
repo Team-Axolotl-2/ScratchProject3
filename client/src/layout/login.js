@@ -120,7 +120,7 @@ const Login = () => {
               />
             </Grid>
           </Grid>
-          <Button
+          {/* <Button
             type="submit"
             fullWidth
             variant="contained"
@@ -128,7 +128,7 @@ const Login = () => {
             className={classes.submit}
           >
             Authenticate
-          </Button>
+          </Button> */}
           <Button
             type="submit"
             fullWidth

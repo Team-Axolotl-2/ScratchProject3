@@ -112,19 +112,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Home = (props) => {
-  // Setting up Material UI Styling
-  useEffect(() => {
-    props.getUser()
-  },[]);
 
-  // props.location.email is from the email and login page
-  const fetchUser = async () => {
-
+  // if the user is logged in, populate home with the data
+  if (props.location.email){
+    props.getUser(props.location.email)
   }
   
-  
-
-  console.log("this is email " + props.location.email)
 
 
   const classes = useStyles();
@@ -232,6 +225,7 @@ const Home = (props) => {
                 </Link>
               </Paper>
             </Grid>
+            
           </Grid>
         </Container>
       </main>

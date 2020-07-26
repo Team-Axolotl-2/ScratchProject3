@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 //import React, { Component } from 'react';
 const ReactDOM = require('react-dom');
 import "@babel/polyfill";
+import axios from 'axios'
 
 // importing different pages for routing
 import CompanyProfile from './src/layout/CompanyProfile';
@@ -80,15 +81,14 @@ class App extends Component {
   // function to delete cards from the array
 
 
-  // create function that will pull user's state
-  getUser(obj){
-    // create conditional, if the object is undefined, just use the default
-
-
-    // else, we will update the state
-
-    // must have set state in here
-    this.setState({ companyListArray: ['Company 1', 'Company 2', 'Company 3'] });
+  // create function that will set the state. Makes Async Call
+  async getUser(email){
+    if (email){
+      console.log("this is email " + email)
+      const data = await axios.get('http://localhost:3000/api/users/' + email)
+      this.setState({companyListArray: data}) // figure out setState
+      console.log(data.data.favorites)
+    }
   }
 
 
