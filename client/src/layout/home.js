@@ -122,7 +122,7 @@ const Home = (props) => {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  console.log('This is companyListArray:   ', props.companyListArray);
+  // console.log('This is companyListArray:   ', props.companyListArray);
   // const ListOfCompanies = () => {
   //   return <div></div>;
   // };
@@ -192,6 +192,8 @@ const Home = (props) => {
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
+
+      
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -206,31 +208,13 @@ const Home = (props) => {
             {/* ADD LIST OF COMPANIES HERE FROM AN ARRAY */}
             <ListOfCompanies companyListArray={props.companyListArray} />
 
+
+
+            {/* we need to render grids */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Link to="companyprofile">
                   <ListItem button>Company Name 1</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 2</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 3</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 4</ListItem>
                 </Link>
               </Paper>
             </Grid>

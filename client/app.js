@@ -9,19 +9,30 @@ import Home from './src/layout/Home';
 import Login from './src/layout/Login';
 import Register from './src/layout/Register';
 import Settings from './src/layout/Settings';
+import axios from 'axios'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// create function to set the initial state. 
+
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      depthLevel: 1,
+      name: '',
+      email: '',
       companyListArray: [
-        'Initial Hard Code Company',
-        'Second fake',
-        'Third hardcode fake',
+        'Company 1',
+        'Company 2',
+        'Company 3',
+        'Company 4',
+        'Company 5',
+        'Company 6',
       ],
+      settings: '',
+      depthLevel: 1,
     };
     this.onSearchClick = this.onSearchClick.bind(this);
   }
@@ -47,6 +58,7 @@ class App extends Component {
     );
   }
 
+  // function to add company through search bar
   onSearchClick(e) {
     e.preventDefault();
     console.log('This is e.target:  ', e.target.company.value);
@@ -56,8 +68,11 @@ class App extends Component {
       return;
     }
     output.push(e.target.company.value);
-    this.setState({ companyListArray: output });
+    this.setState({ companyListArray: output }); // setting the state
   }
+
+
+  // function to delete cards from the array
 }
 
 export default App;
