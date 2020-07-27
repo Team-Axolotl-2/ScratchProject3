@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PriceGraph from '../components/PriceGraph'
 import FinancialAnalysis from '../components/FinancialAnalysis'
@@ -113,7 +113,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const CompanyProfile = () => {
+const CompanyProfile = (props) => {
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -167,6 +168,7 @@ const CompanyProfile = () => {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
+                {props.location.name}
                 <PriceGraph/>
               </Paper>
             </Grid>

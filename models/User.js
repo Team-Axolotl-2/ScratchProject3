@@ -12,9 +12,7 @@ const UserSchema = new mongoose.Schema({
   },
   favorites:[
     {
-      ticker: {
-        type: String,
-      }
+      type: String
     }
   ],
   beginner: {
