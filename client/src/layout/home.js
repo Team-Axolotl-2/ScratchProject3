@@ -1,8 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PriceGraph from '../components/PriceGraph';
 import SearchBar from '../components/SearchBar';
 import ListOfCompanies from '../components/companies/ListOfCompanies';
+import axios from 'axios'
+import SliderContainer from '../components/sliderContainer'
 
 // IMPORTS FOR MATERIAL UI
 import ListItem from '@material-ui/core/ListItem';
@@ -108,9 +110,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const Home = (props) => {
-  // Setting up Material UI Styling
-  console.log(props)
+
+  // This changes state to the logged in user's data
+  // use UseEffect to set state
+  if (props.location.email){
+    props.getUser(props.location.email) // making the function call
+  }
 
 
   const classes = useStyles();
@@ -122,10 +130,6 @@ const Home = (props) => {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  console.log('This is companyListArray:   ', props.companyListArray);
-  // const ListOfCompanies = () => {
-  //   return <div></div>;
-  // };
 
   const [formData, setFormData] = useState({
     initialStateKey: 'initialStateValue',
@@ -192,6 +196,8 @@ const Home = (props) => {
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
+
+      
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
@@ -206,6 +212,12 @@ const Home = (props) => {
             {/* ADD LIST OF COMPANIES HERE FROM AN ARRAY */}
             <ListOfCompanies companyListArray={props.companyListArray} />
 
+
+
+            {/* we need to render grids */}
+            <div id="bodyWrap">
+              <SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
+            </div>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Link to="companyprofile">
@@ -213,27 +225,7 @@ const Home = (props) => {
                 </Link>
               </Paper>
             </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 2</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 3</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 4</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
+            
           </Grid>
         </Container>
       </main>

@@ -27,6 +27,10 @@ router.get('/overview', (req, res, next) => {
       (response) => {
       // log api request for testing
         console.log(`AA API response ${response.data}`);
+        const desired = {Symbol, Name, SharesShort, ProfitMargin, Industry, EPS, Beta, BookValue} = response.data;
+        res.locals.overview = desired;
+
+        console.log(" res.locals ", res.locals.overview);
         res.status(200).send(response.data);
       },
       (err) => {
