@@ -105,7 +105,7 @@ class App extends Component {
       // ! setData is what we need
         // make axios request to update the database
       this.setState({companyListArray: setData})
-    } else{
+    } else{ // use the default state
       output.push(e.target.company.value);
       this.setState({ companyListArray: output }); // setting the state
     }
