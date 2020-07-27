@@ -15,7 +15,6 @@ class FinancialAnalysis extends Component {
       // 'Free Cash Flow': null,
     }
   }
-  
   // need to grab query symbol from search
   componentDidMount() {
     axios.get('/api/overview/?symbol=AAPL')
