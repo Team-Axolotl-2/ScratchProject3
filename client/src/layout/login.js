@@ -149,7 +149,7 @@ const Login = () => {
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="register" variant="body2">
-                Don't have any presets? Sign up
+                Don't have an account? Sign up
               </Link>
             </Grid>
           </Grid>

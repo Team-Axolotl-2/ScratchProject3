@@ -141,25 +141,13 @@ const Register = () => {
                 required
                 fullWidth
                 id="favorites"
-                label="Favorites"
+                label="Favorite Company Ticker"
                 name="favorites"
                 autoComplete="GOOG, AMZN, FB"
                 onChange={(e) => onChange(e)}
               />
             </Grid>
-            
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="favorites"
-                label="Favorites"
-                name="favorites"
-                autoComplete="GOOG, AMZN, FB"
-                onChange={(e) => onChange(e)}
-              />
-            </Grid>
+
             <Grid item xs={12}>
               <TextField
                 variant="outlined"

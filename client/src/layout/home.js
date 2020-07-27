@@ -218,13 +218,6 @@ const Home = (props) => {
             <div id="bodyWrap">
               <SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
             </div>
-            <Grid item xs={12} md={4} lg={4}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 1</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
             
           </Grid>
         </Container>
