@@ -32,8 +32,6 @@ router.post("/", async (req, res) => {
     });
 
     console.log("in users " + user)
-
-    
     user.save(); // throwing an error here right now
     res.json(req.body);
   } catch (err) {
@@ -58,10 +56,25 @@ router.get("/", async (req, res) => {
 });
 
 
+// ! Get an individual user
 router.get("/:email", async (req, res) => {
   try {
     // should populate profiles with the name
     const users = await User.findOne({email: req.params.email}) // this works
+    res.json(users);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+
+// ! Update an individual user
+router.post("/:email", async (req, res) => {
+  try {
+    // should populate profiles with the name. We need to get the update working
+    await User.updateOne({email: req.params.email},) // this works
     res.json(users);
   } catch (err) {
     console.error(err.message);
