@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // Don't let this run...Prettier
 //import { ProgressPlugin } from 'webpack';
 
+
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ class SearchBar extends Component {
       search: '',
     };
   }
+
   handleChange(event) {
     console.log('Looking for this.props:  ', this.props);
     const output = {

@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PriceGraph from '../components/PriceGraph';
 import SearchBar from '../components/SearchBar';
+import SearchResults from '../components/companies/SearchResults';
 import ListOfCompanies from '../components/companies/ListOfCompanies';
 import axios from 'axios'
 import SliderContainer from '../components/sliderContainer'
@@ -29,8 +30,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './ListItems.js';
 
-const drawerWidth = 140;
 
+const drawerWidth = 140;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -110,8 +111,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 const Home = (props) => {
 
   // This changes state to the logged in user's data
@@ -120,6 +119,10 @@ const Home = (props) => {
     props.getUser(props.location.email) // making the function call
   }
 
+  // determine if search results or company list should be displayed
+  let homeBody = ''
+  if (props.searchResults !== null) {homeBody = <SearchResults searchResults={props.searchResults} SearchSelector={props.SearchSelector}/>}
+  else homeBody = <ListOfCompanies companyListArray={props.companyListArray} />
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -211,19 +214,8 @@ const Home = (props) => {
               </Paper>
             </Grid>
 
-            {/* ADD LIST OF COMPANIES HERE FROM AN ARRAY */}
-            <ListOfCompanies companyListArray={props.companyListArray} />
-
-
-
-            {/* we need to render grids */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Link to="companyprofile">
-                  <ListItem button>Company Name 1</ListItem>
-                </Link>
-              </Paper>
-            </Grid>
+            {/* ADD LIST OF COMPANIES HERE FROM AN ARRAY OR SEARCH RESULTS*/}
+            {homeBody}
             
           </Grid>
         </Container>

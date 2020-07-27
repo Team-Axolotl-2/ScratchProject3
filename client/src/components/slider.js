@@ -16,8 +16,8 @@ and the state is not currently set to the value at that position,
 update state with the new depthLevel.
 */
 function handleChange (e, value, depthLevel, onSliderChange) {
-  console.log ('Current Depth:   ', depthLevel, '   ===============================')
-  console.log ('value :   ', value, '   ===============================')
+  // console.log ('Current Depth:   ', depthLevel, '   ===============================')
+  // console.log ('value :   ', value, '   ===============================')
 
   if (value > 97 && depthLevel !== 0) {
     console.log('STATE TO 0');
