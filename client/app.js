@@ -91,13 +91,11 @@ class App extends Component {
   // function makes async call to database to get specific user data
   async getUser(email){
     if (email){
-      console.log("this is email " + email)
       const data = await axios.get('http://localhost:3000/api/users/' + email) // makes axios request to get specific user
       setData = data.data.favorites
       this.setState({companyListArray: setData})
     } else{
-      console.log("return 1234")
-      setData=[1,5,6,3]
+      setData=["GOOG","FB","AMZN"] // default data
       this.setState({companyListArray: setData})
     }
   }

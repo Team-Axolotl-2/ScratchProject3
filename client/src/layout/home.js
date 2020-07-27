@@ -114,15 +114,10 @@ const useStyles = makeStyles((theme) => ({
 const Home = (props) => {
 
   // This changes state to the logged in user's data
-
-
   // use UseEffect to set state
   if (props.location.email){
     props.getUser(props.location.email) // making the function call
   }
-
-
-
 
 
   const classes = useStyles();
