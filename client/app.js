@@ -90,21 +90,23 @@ class App extends Component {
       return;
     }
 
-    
     // making the axios request, which should update the db
     const pushData = e.target.company.value // need to get value outside for async
     if (email){
       // getting the data and returning what we need
       const data = await axios.get('http://localhost:3000/api/users/' + email)
-      console.log("this is data in onSearchClick " + data.data.favorites) 
-      const setData = data.data.favorites
-      console.log(pushData)
-      setData.push(pushData)
-      console.log("setData Data " + setData)
+      const setData = data.data.favorites // getting the favorites array
+      setData.push(pushData) // pushing typed element to the array
 
-      // ! setData is what we need
+      // ! setData is what we need -- setData is an array of what we need
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      // axios request to add to db
+      const upData = await axios.post('http://localhost:3000/api/users/' + email, setData, config)
         // make axios request to update the database
-      this.setState({companyListArray: setData})
     } else{ // use the default state
       output.push(e.target.company.value);
       this.setState({ companyListArray: output }); // setting the state

@@ -72,10 +72,17 @@ router.get("/:email", async (req, res) => {
 
 // ! Update an individual user
 router.post("/:email", async (req, res) => {
+  // Destructuring from req.body
+  console.log("this is the body " + req.body)
+ 
+
+  const profileFields = {};
+  profileFields.favorites = req.body; // setting favorites equal to favorites
+
   try {
     // should populate profiles with the name. We need to get the update working
-    await User.updateOne({email: req.params.email},) // this works
-    res.json(users);
+    let update = await User.findOneAndUpdate({email: req.params.email}, {$set: profileFields}) // this works
+    res.json(update);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
