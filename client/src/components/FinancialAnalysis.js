@@ -10,7 +10,7 @@ class FinancialAnalysis extends Component {
   // for adding axios call later to databas
   
   componentDidMount() {
-    axios.get('/api/overview')
+    axios.get('/api/overview?symbol=TSLA')
       .then(res => {
         console.log('res.data', res.data);
       })

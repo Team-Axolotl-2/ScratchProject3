@@ -20,7 +20,7 @@ app.use(cors());
 
 
 // Connect to the MongoDB Database
-/* const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
+/* const db = process.env.MONGO_URL'
 
 const connectDB = async () => {
   try{
