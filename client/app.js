@@ -97,7 +97,6 @@ class App extends Component {
       const data = await axios.get('http://localhost:3000/api/users/' + email)
       const setData = data.data.favorites // getting the favorites array
       setData.push(pushData) // pushing typed element to the array
-
       // ! setData is what we need -- setData is an array of what we need
       const config = {
         headers: {
