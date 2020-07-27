@@ -30,12 +30,18 @@ router.post("/", async (req, res) => {
       password,
       favorites
     });
+
+    console.log("in users " + user)
+
+    
     user.save(); // throwing an error here right now
     res.json(req.body);
   } catch (err) {
     console.log("error");
   }
 });
+
+
 
 
 
@@ -62,5 +68,10 @@ router.get("/:email", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
+
+// Create a request to update the user
+
 
 module.exports = router;

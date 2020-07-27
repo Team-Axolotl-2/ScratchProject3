@@ -15,13 +15,7 @@ const UserSchema = new mongoose.Schema({
       type: String
     }
   ],
-  beginner: {
-    type: Boolean,
-  },
-  intermediate: {
-    type: Boolean,
-  },
-  advanced: {
+  depthLevel: {
     type: Boolean,
   },
 

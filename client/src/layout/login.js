@@ -106,6 +106,7 @@ const Login = () => {
                 onChange={(e) => onChange(e)}
               />
             </Grid>
+            
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -148,45 +149,13 @@ const Login = () => {
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="register" variant="body2">
-                Already have an account? Sign in
+                Don't have any presets? Sign up
               </Link>
             </Grid>
           </Grid>
         </form>
       </div>
     </Container>
-
-    // <Fragment>
-    //   <h1 className="large text-primary">Sign Up</h1>
-    //   <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
-    //   <form className="form" onSubmit = {e => onSubmit(e)}>
-    //     <div className="form-group">
-    //       <input type="email" placeholder="Email Address" name="email" value={email} onChange={e => onChange(e)}/>
-    //     </div>
-    //     <div className="form-group">
-    //       <input
-    //         type="password"
-    //         placeholder="Password"
-    //         name="password"
-    //         minLength="6"
-    //         value={password} onChange={e => onChange(e)}
-    //       />
-    //     </div>
-    //     {/* just authenticates */}
-    //       <input type="submit" className="btn btn-primary" value="Authenticate" />
-    //       {/* Takes user to the dashboard, passing the email as the props */}
-    //     <Link to = {{
-    //       pathname: "/",
-    //       username: email
-    //       }}>
-    //       <input type="submit" className="btn btn-primary" value="Go To Dashboard" />
-    //     </Link>
-
-    //   </form>
-    //   <p className="my-1">
-    //     Don't have an account? <Link to="register">register</Link>
-    //   </p>
-    // </Fragment>
   );
 };
 

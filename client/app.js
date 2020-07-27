@@ -78,7 +78,7 @@ class App extends Component {
     );
   }
 
-  // function to add company through search bar
+  // function to add company through search bar, and adds
   onSearchClick(e) {
     e.preventDefault();
     console.log('This is e.target:  ', e.target.company.value);
@@ -87,6 +87,9 @@ class App extends Component {
       alert('Company has already been added.');
       return;
     }
+    // make axios update request, since we need to change value in the actual db on click
+    
+
     output.push(e.target.company.value);
     this.setState({ companyListArray: output }); // setting the state
   }

@@ -49,9 +49,10 @@ const Register = () => {
     email: "",
     password: "",
     password2: "",
+    favorites: "", // empty favorites array
   });
 
-  const { name, email, password, password2 } = formData; // destructuring the values in the form
+  const { name, email, password, password2, favorites } = formData; // destructuring the values in the form
 
   // set the form data, but update the target val
   const onChange = (e) =>
@@ -68,6 +69,7 @@ const Register = () => {
         name,
         email,
         password,
+        favorites,
       };
       try {
         const config = {
@@ -76,7 +78,7 @@ const Register = () => {
           },
         };
         const body = JSON.stringify(newUser);
-        console.log(body);
+        console.log("Body in register " + body);
         const res = await axios.post(
           "http://localhost:3000/api/users",
           body,
@@ -128,6 +130,33 @@ const Register = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+
+
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="favorites"
+                label="Favorites"
+                name="favorites"
+                autoComplete="GOOG, AMZN, FB"
+                onChange={(e) => onChange(e)}
+              />
+            </Grid>
+            
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="favorites"
+                label="Favorites"
+                name="favorites"
+                autoComplete="GOOG, AMZN, FB"
                 onChange={(e) => onChange(e)}
               />
             </Grid>
