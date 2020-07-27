@@ -205,7 +205,7 @@ const Home = (props) => {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 {/* SEARCH BAR COMPONENT ADDED */}
-                <SearchBar onSearchClick={props.onSearchClick} />
+                <SearchBar onSearchClick={props.onSearchClick} email = {props.location.email}/>
               </Paper>
             </Grid>
 

@@ -78,8 +78,10 @@ class App extends Component {
     );
   }
 
-  // function to add company through search bar, and adds
-  onSearchClick(e) {
+  // function to add company through search bar, and adds to the user's databse
+  // also need to add in an email parameter
+  onSearchClick(e, email) {
+    console.log('This is email in onSearchClick ' + email)
     e.preventDefault();
     console.log('This is e.target:  ', e.target.company.value);
     const output = this.state.companyListArray;
@@ -87,7 +89,8 @@ class App extends Component {
       alert('Company has already been added.');
       return;
     }
-    // make axios update request, since we need to change value in the actual db on click
+
+    // make axios request to update arary in db, since we need to change value in the actual db on click
     
 
     output.push(e.target.company.value);

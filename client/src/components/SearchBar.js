@@ -23,7 +23,7 @@ class SearchBar extends Component {
     return (
       <div>
         Search Bar And Add Component
-        <form onSubmit={(e) => this.props.onSearchClick(e)}>
+        <form onSubmit={(e) => this.props.onSearchClick(e, this.props.email)}>
           <label>
             <input
               name="company"
@@ -32,9 +32,6 @@ class SearchBar extends Component {
               onChange={(event) => this.handleChange(event)}
             ></input>
           </label>
-          {/* <button onClick={(e) => this.props.onSearchClick(e)}>
-          Add Company
-        </button> */}
           <input type="submit" value="Add Company"></input>
         </form>
       </div>
