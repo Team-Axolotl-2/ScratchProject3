@@ -5,10 +5,14 @@ const path = require('path');
 const axios = require("axios");
 const overview = require("./routes/a-overview");
 const income = require("./routes/a-income");
-const balanace = require("./routes/a-balance");
+const balance = require("./routes/a-balance");
 const cashflow = require("./routes/a-cashflow");
 const health = require("./routes/a-sectorhealth");
 const crypto = require("./routes/a-crypto-exchange");
+const companySearch = require("./routes/company/search");
+const companyChartData = require("./routes/company/chart-data");
+
+
 const cors = require('cors');
 const Mongoose = require('mongoose');
 
@@ -21,7 +25,7 @@ app.use(cors());
 app.use(express.static("client"));
 
 // ! Connecting to the MongoDB Database
-const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
+/* const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const connectDB = async () => {
   try {
@@ -32,29 +36,34 @@ const connectDB = async () => {
   }
 }
 
-connectDB();
+connectDB(); */
 
 // Initialize universal middleware
 app.use(express.json({ extended: false }));
 
 // to avoid cors error, give permission ot front end
-app.use(
+/* app.use(
   cors({
     origin: 'http://localhost:8080',
     methods:'GET,HEAD,PUT,PATCH,POST,DELETEGET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   }),
-);
+); */
 
+app.use('/company', 
+  companySearch,
+  companyChartData
+)
 
-app.use('/api/users', require('./routes/api/users'))
-
+app.use('/api/users', 
+  require('./routes/api/users')
+)
 
 // Define Routes
 app.use('/api/',
   overview,
   income,
-  balanace,
+  balance,
   cashflow,
   health,
   crypto,
@@ -62,7 +71,7 @@ app.use('/api/',
 
 app.use((req, res, next, err) => {
   if (err) {
-    console.log(`ERROR at use: ` );
+    console.log(`ERROR at use:  ${err}`);
   }
 });
 
