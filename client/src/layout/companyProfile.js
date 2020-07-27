@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PriceGraph from '../components/PriceGraph'
 import FinancialAnalysis from '../components/FinancialAnalysis'
