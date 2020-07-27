@@ -42,22 +42,17 @@ connectDB(); */
 app.use(express.json({ extended: false }));
 
 // to avoid cors error, give permission ot front end
-/* app.use(
+app.use(
   cors({
     origin: 'http://localhost:8080',
     methods:'GET,HEAD,PUT,PATCH,POST,DELETEGET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   }),
-); */
+); 
 
-app.use('/company', 
-  companySearch,
-  companyChartData
-)
-
-app.use('/api/users', 
-  require('./routes/api/users')
-)
+// app.use('/api/users', 
+//   require('./routes/api/users')
+// )
 
 // Define Routes
 app.use('/api/',
@@ -68,6 +63,11 @@ app.use('/api/',
   health,
   crypto,
 );
+
+app.use('/company/',
+  companySearch,
+  companyChartData,
+)
 
 app.use((req, res, next, err) => {
   if (err) {

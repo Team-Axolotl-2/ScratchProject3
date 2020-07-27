@@ -15,6 +15,7 @@ module.exports = {
     //publicPath: '/build/',
     proxy: {
       '/api' : 'http://localhost:3000/',
+      '/company' : 'http://localhost:3000/',
     },
   },
 

@@ -73,8 +73,8 @@ class FinancialAnalysis extends Component {
 
     for (let key in rawStats) {
       outputStats.push(
-        <div>
-          <p key={index}>{key}<FontAwesomeIcon icon={faInfoCircle} fixedWidth/>: {rawStats[key]}</p>
+        <div  key={index}>
+          <p>{key}: {rawStats[key]}</p>
         </div>)
       index += 1;
     };

@@ -29,23 +29,21 @@ let timeFrame = {
 // Build consumable AlphaAdvantage url
 const request_payload = (t, s) => `${URL}function=${t}&symbol=${s}&apikey=${KEY}`;
 
-router.get("/chart-data", (req, res, next) => {
-  console.log( req.query);
+router.get('/chart-data', (req, res, next) => {
   let time = timeFrame[req.query.interval];
   let symbol = req.query.symbol;
-    let searchFor = request_payload(time, symbol);
+  let searchFor = request_payload(time, symbol);
 
   axios.get(searchFor)
     .then((response) => {
       //console.log(response.data.bestMatches[0], response.data.bestMatches[1]);
-      res.status(200).send(response.data)
+      res.status(200).send(response.data);
       next();
     })
     .catch(err => {
       console.log(`Company lookup error: ${err}`)
-      next(err)
-    })
-
-})
+      next(err);
+    });
+});
 
 module.exports = router;

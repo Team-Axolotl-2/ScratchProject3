@@ -30,7 +30,7 @@ router.get('/overview', (req, res, next) => {
         const desired = {Symbol, Name, SharesShort, ProfitMargin, Industry, EPS, Beta, BookValue} = response.data;
         res.locals.overview = desired;
 
-        console.log(" res.locals ", res.locals.overview);
+        // console.log(" res.locals ", res.locals.overview);
         res.status(200).send(response.data);
       },
       (err) => {
