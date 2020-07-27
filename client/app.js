@@ -80,7 +80,7 @@ class App extends Component {
 
   // function to add company through search bar, and adds to the user's databse
   // also need to add in an email parameter
-  onSearchClick(e, email) {
+  async onSearchClick(e, email) {
     console.log('This is email in onSearchClick ' + email)
     e.preventDefault();
     console.log('This is e.target:  ', e.target.company.value);
@@ -90,11 +90,25 @@ class App extends Component {
       return;
     }
 
-    // make axios request to update arary in db, since we need to change value in the actual db on click
     
+    // making the axios request, which should update the db
+    const pushData = e.target.company.value // need to get value outside for async
+    if (email){
+      // getting the data and returning what we need
+      const data = await axios.get('http://localhost:3000/api/users/' + email)
+      console.log("this is data in onSearchClick " + data.data.favorites) 
+      const setData = data.data.favorites
+      console.log(pushData)
+      setData.push(pushData)
+      console.log("setData Data " + setData)
 
-    output.push(e.target.company.value);
-    this.setState({ companyListArray: output }); // setting the state
+      // ! setData is what we need
+        // make axios request to update the database
+      this.setState({companyListArray: setData})
+    } else{
+      output.push(e.target.company.value);
+      this.setState({ companyListArray: output }); // setting the state
+    }
   }
 
 
