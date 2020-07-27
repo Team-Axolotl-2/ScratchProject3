@@ -211,11 +211,6 @@ const Home = (props) => {
               </Paper>
             </Grid>
 
-            {/* ADD LIST OF COMPANIES HERE FROM AN ARRAY */}
-            {/* <ListOfCompanies companyListArray={props.companyListArray} /> */}
-
-
-
             {/* we need to render grids */}
             <div id="bodyWrap">
               <SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
