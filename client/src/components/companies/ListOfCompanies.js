@@ -120,9 +120,9 @@ const ListOfCompanies = (props) => {
       <Grid container spacing={3}>
         {props.companyListArray.map((profile, index) => (
           <Grid item xs={12} md={8} lg={4}>
-            <Paper className={classes.paper}>
+            {/* <Paper className={classes.paper}> */}
               <CompanyCard key={index} companyName={props.companyListArray[index]} />
-            </Paper>
+            {/* </Paper> */}
           </Grid>
         ))}
       </Grid>
