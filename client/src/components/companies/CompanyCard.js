@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link, Redirect } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -51,7 +52,9 @@ export default function CompanyCard(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Link to = "companyProfile">
+          <Button size="small">Learn More</Button>
+        </Link>
       </CardActions>
     </Card>
   );

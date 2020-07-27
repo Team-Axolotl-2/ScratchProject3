@@ -113,11 +113,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = (props) => {
 
-  // if the user is logged in, populate home with the data
+  // This changes state to the logged in user's data
+
+
+  // use UseEffect to set state
   if (props.location.email){
-    props.getUser(props.location.email)
+    props.getUser(props.location.email) // making the function call
   }
-  
+
+
+
 
 
   const classes = useStyles();
@@ -129,10 +134,6 @@ const Home = (props) => {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  // console.log('This is companyListArray:   ', props.companyListArray);
-  // const ListOfCompanies = () => {
-  //   return <div></div>;
-  // };
 
   const [formData, setFormData] = useState({
     initialStateKey: 'initialStateValue',

@@ -15,10 +15,7 @@ import Settings from './src/layout/Settings';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
-
-
-
-
+let setData = []; // stores the user data in async call on line 92
 
 class App extends Component {
   constructor(props) {
@@ -40,6 +37,17 @@ class App extends Component {
     this.onSearchClick = this.onSearchClick.bind(this);
     this.getUser = this.getUser.bind(this)
   }
+
+  // ! setting the state
+  componentDidMount(){
+    const data = this.getUser();
+    console.log("inside did mount" + data)
+    //this.getUser()
+      // create function that will set the state. Makes Async Call
+    this.setState({companyListArray: setData}) // Set initial state 
+  }
+
+
   render() {
     console.log(this.state) // test to console.log the state
     return (
@@ -80,19 +88,19 @@ class App extends Component {
 
   // function to delete cards from the array
 
-
-  // create function that will set the state. Makes Async Call
+  // function makes async call to database to get specific user data
   async getUser(email){
     if (email){
       console.log("this is email " + email)
-      const data = await axios.get('http://localhost:3000/api/users/' + email)
-      this.setState({companyListArray: data}) // figure out setState
-      console.log(data.data.favorites)
+      const data = await axios.get('http://localhost:3000/api/users/' + email) // makes axios request to get specific user
+      setData = data.data.favorites
+      this.setState({companyListArray: setData})
+    } else{
+      console.log("return 1234")
+      setData=[1,5,6,3]
+      this.setState({companyListArray: setData})
     }
   }
-
-
-  
 }
 
 export default App;
