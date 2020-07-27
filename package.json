@@ -26,6 +26,10 @@
   },
   "homepage": "https://github.com/anthonylin198/ScratchProject-1#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
@@ -42,6 +46,8 @@
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
+    "react-fontawesome": "^1.7.1",
+    "react-hover": "^2.0.0",
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {

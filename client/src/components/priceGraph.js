@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { Line } from 'react-chartjs-2';
 
 class PriceGraph extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
+      name: this.props.name,
       chartData: {
         labels: ['Q1', 'Q2', 'Q3', 'Q4'],
         datasets: [

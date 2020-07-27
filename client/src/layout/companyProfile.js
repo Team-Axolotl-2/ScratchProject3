@@ -114,7 +114,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 const CompanyProfile = (props) => {
-
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -169,13 +168,13 @@ const CompanyProfile = (props) => {
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 {props.location.name}
-                <PriceGraph/>
+                <PriceGraph name={props.location.name}/>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                <FinancialAnalysis/>
+                <FinancialAnalysis name={props.location.name}/>
               </Paper>
             </Grid>
             {/* Recent Orders */}

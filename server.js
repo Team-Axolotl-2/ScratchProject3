@@ -24,11 +24,11 @@ app.use(express.static("client"));
 const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const connectDB = async () => {
-  try{
+  try {
     await Mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false})
-    console.log("MongoDB Connected...")
-  } catch(err){
-    console.error(err.message)
+    console.log("MongoDB Connected...");
+  } catch (err) {
+    console.error(err.message);
   }
 }
 
