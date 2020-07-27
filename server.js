@@ -18,7 +18,8 @@ const router = express.Router();
 // Connect to the MongoDB Database
 app.use(cors());
 
-
+app.use(express.static("client"));
+console.log(path.join(__dirname, "client"))
 // ! Connecting to the MongoDB Database
 const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 

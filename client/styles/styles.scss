@@ -1,0 +1,15 @@
+.sliderContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 3px;
+  padding-top: 17px;
+  width: 120px;
+  height: 300px;
+  background-image: url("../assets/sliderBar.png");
+}
+
+#bodyWrap{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

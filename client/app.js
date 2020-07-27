@@ -9,6 +9,8 @@ import Home from './src/layout/Home';
 import Login from './src/layout/Login';
 import Register from './src/layout/Register';
 import Settings from './src/layout/Settings';
+import './styles/styles.scss';
+ 
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -16,7 +18,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      depthLevel: 1,
+      depthLevel: 0,
       companyListArray: [
         'Initial Hard Code Company',
         'Second fake',
@@ -24,6 +26,7 @@ class App extends Component {
       ],
     };
     this.onSearchClick = this.onSearchClick.bind(this);
+    this.onSliderChange = this.onSliderChange.bind(this);
   }
   render() {
     return (
@@ -36,6 +39,8 @@ class App extends Component {
               {...props}
               companyListArray={this.state.companyListArray}
               onSearchClick={this.onSearchClick}
+              onSliderChange={this.onSliderChange}
+              depthLevel={this.state.depthLevel}
             />
           )}
         />
@@ -58,6 +63,10 @@ class App extends Component {
     output.push(e.target.company.value);
     this.setState({ companyListArray: output });
   }
+
+  onSliderChange(number) {
+    this.setState({depthLevel : number});
+  };
 }
 
 export default App;
