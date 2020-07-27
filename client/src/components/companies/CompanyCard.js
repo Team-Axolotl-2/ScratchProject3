@@ -43,12 +43,12 @@ export default function CompanyCard(props) {
           {props.companyName}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Tech Sector (maybe)
+          Sector: Technology
         </Typography>
         <Typography variant="body2" component="p">
-          Stock info goes here
-          <br />
-          More stock info
+          Google is a S and P 500 Company
+          {/* <br />
+          More stock info */}
         </Typography>
       </CardContent>
       <CardActions>
