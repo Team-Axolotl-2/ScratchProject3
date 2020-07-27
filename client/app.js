@@ -10,6 +10,8 @@ import Home from './src/layout/Home';
 import Login from './src/layout/Login';
 import Register from './src/layout/Register';
 import Settings from './src/layout/Settings';
+import './styles/styles.scss';
+ 
 
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -23,6 +25,7 @@ class App extends Component {
     this.state = { // setting the default state
       name: '',
       email: this.props.email,
+      depthLevel: 0,
       companyListArray: [
         'Company 1',
         'Company 2',
@@ -35,6 +38,7 @@ class App extends Component {
       depthLevel: 1,
     };
     this.onSearchClick = this.onSearchClick.bind(this);
+    this.onSliderChange = this.onSliderChange.bind(this);
     this.getUser = this.getUser.bind(this)
   }
 
@@ -61,6 +65,8 @@ class App extends Component {
               companyListArray={this.state.companyListArray}
               onSearchClick={this.onSearchClick}
               getUser={this.getUser}
+              onSliderChange={this.onSliderChange}
+              depthLevel={this.state.depthLevel}
             />
           )}
         />
@@ -99,6 +105,10 @@ class App extends Component {
       this.setState({companyListArray: setData})
     }
   }
+
+  onSliderChange(number) {
+    this.setState({depthLevel : number});
+  };
 }
 
 export default App;

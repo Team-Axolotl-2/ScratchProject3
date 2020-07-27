@@ -4,6 +4,7 @@ import PriceGraph from '../components/PriceGraph';
 import SearchBar from '../components/SearchBar';
 import ListOfCompanies from '../components/companies/ListOfCompanies';
 import axios from 'axios'
+import SliderContainer from '../components/sliderContainer'
 
 // IMPORTS FOR MATERIAL UI
 import ListItem from '@material-ui/core/ListItem';
@@ -214,6 +215,9 @@ const Home = (props) => {
 
 
             {/* we need to render grids */}
+            <div id="bodyWrap">
+              <SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
+            </div>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Link to="companyprofile">
