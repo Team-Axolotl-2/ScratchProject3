@@ -46,7 +46,7 @@ export default function CompanyCard(props) {
           Sector: Technology
         </Typography>
         <Typography variant="body2" component="p">
-          Google is a S and P 500 Company
+          {props.companyName} is a S and P 500 Company
           {/* <br />
           More stock info */}
         </Typography>
