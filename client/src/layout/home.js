@@ -29,7 +29,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './ListItems.js';
 
-const drawerWidth = 240;
+const drawerWidth = 140;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     width: theme.spacing(7),
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
+      width: theme.spacing(7),
     },
   },
   appBarSpacer: theme.mixins.toolbar,
@@ -194,7 +194,9 @@ const Home = (props) => {
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        {/* <List>{secondaryListItems}</List> */}
+        <List id="depthList"><SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel}/></List>
+
       </Drawer>
 
       
@@ -215,9 +217,6 @@ const Home = (props) => {
 
 
             {/* we need to render grids */}
-            <div id="bodyWrap">
-              <SliderContainer onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
-            </div>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Link to="companyprofile">
