@@ -17,7 +17,7 @@ class FinancialAnalysis extends Component {
   }
   // need to grab query symbol from search
   componentDidMount() {
-    axios.get('/api/overview/?symbol=AAPL')
+    axios.get('/api/overview?symbol=TSLA')
       .then(res => {
         console.log('res.data', res.data);
         this.setState({
