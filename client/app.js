@@ -152,7 +152,7 @@ class App extends Component {
       setData = data.data.favorites
       this.setState({companyListArray: setData})
     } else{
-      setData=["GOOG","FB","AMZN"] // default data
+      setData=[] // default data
       this.setState({companyListArray: setData})
     }
   }
