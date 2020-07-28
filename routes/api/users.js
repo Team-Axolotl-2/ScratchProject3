@@ -4,7 +4,7 @@ const router = express.Router();
 
 const User = require("../../models/User"); // bringing in the user model
 
-// Successfully making the post request
+// ! Post request to send to MongoDB Database
 router.post("/", async (req, res) => {
   const {
     name,
@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
 
 
 
-// Get request for getting all users
+//! Get request to get all the users
 router.get("/", async (req, res) => {
   try {
     // should populate profiles with the name
