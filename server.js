@@ -25,7 +25,7 @@ app.use(cors());
 app.use(express.static("client"));
 
 // ! Connecting to the MongoDB Database
-/* const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
+const db = 'mongodb+srv://user:user@cluster0.ykk7s.mongodb.net/<dbname>?retryWrites=true&w=majority'
 
 const connectDB = async () => {
   try {
@@ -36,7 +36,7 @@ const connectDB = async () => {
   }
 }
 
-connectDB(); */
+connectDB();
 
 // Initialize universal middleware
 app.use(express.json({ extended: false }));
