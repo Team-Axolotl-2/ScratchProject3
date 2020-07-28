@@ -165,15 +165,15 @@ const CompanyProfile = (props) => {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={classes.paper}>
                 {props.location.name}
                 <PriceGraph name={props.location.name}/>
               </Paper>
             </Grid>
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={classes.paper}>
                 <FinancialAnalysis name={props.location.name}/>
               </Paper>
             </Grid>
