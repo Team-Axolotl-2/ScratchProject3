@@ -4,7 +4,7 @@ const router = express.Router();
 
 const User = require("../../models/User"); // bringing in the user model
 
-// ! Post request to send to MongoDB Database
+// ! Post request to send to MongoDB Database. Implement BCRYPT, possibly auth etc..
 router.post("/", async (req, res) => {
   const {
     name,
