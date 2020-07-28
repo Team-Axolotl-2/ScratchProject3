@@ -50,9 +50,9 @@ app.use(
   }),
 ); 
 
-// app.use('/api/users', 
-//   require('./routes/api/users')
-// )
+app.use('/api/users', 
+  require('./routes/api/users')
+)
 
 // Define Routes
 app.use('/api/',
