@@ -53,7 +53,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state) // test to console.log the state
+    // console.log(this.state) // test to console.log the state
     return (
       <Router>
         <Route
