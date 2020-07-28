@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // Don't let this run...Prettier
 //import { ProgressPlugin } from 'webpack';
 
+
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ class SearchBar extends Component {
       search: '',
     };
   }
+
   handleChange(event) {
     console.log('Looking for this.props:  ', this.props);
     const output = {
@@ -23,7 +26,7 @@ class SearchBar extends Component {
     return (
       <div>
         Search Bar And Add Component
-        <form onSubmit={(e) => this.props.onSearchClick(e)}>
+        <form onSubmit={(e) => this.props.onSearchClick(e, this.props.email)}>
           <label>
             <input
               name="company"
@@ -32,9 +35,6 @@ class SearchBar extends Component {
               onChange={(event) => this.handleChange(event)}
             ></input>
           </label>
-          {/* <button onClick={(e) => this.props.onSearchClick(e)}>
-          Add Company
-        </button> */}
           <input type="submit" value="Add Company"></input>
         </form>
       </div>

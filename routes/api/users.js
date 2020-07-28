@@ -30,12 +30,16 @@ router.post("/", async (req, res) => {
       password,
       favorites
     });
+
+    console.log("in users " + user)
     user.save(); // throwing an error here right now
     res.json(req.body);
   } catch (err) {
     console.log("error");
   }
 });
+
+
 
 
 
@@ -52,6 +56,7 @@ router.get("/", async (req, res) => {
 });
 
 
+// ! Get an individual user
 router.get("/:email", async (req, res) => {
   try {
     // should populate profiles with the name
@@ -62,5 +67,31 @@ router.get("/:email", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
+
+// ! Update an individual user
+router.post("/:email", async (req, res) => {
+  // Destructuring from req.body
+  console.log("this is the body " + req.body)
+ 
+
+  const profileFields = {};
+  profileFields.favorites = req.body; // setting favorites equal to favorites
+
+  try {
+    // should populate profiles with the name. We need to get the update working
+    let update = await User.findOneAndUpdate({email: req.params.email}, {$set: profileFields}) // this works
+    res.json(update);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+
+// Create a request to update the user
+
 
 module.exports = router;
