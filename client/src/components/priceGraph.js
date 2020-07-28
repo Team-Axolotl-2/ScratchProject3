@@ -1,48 +1,66 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Line } from 'react-chartjs-2';
+import axios from 'axios'
 
 class PriceGraph extends Component {
-  constructor() {
-    super();
+  // used to let react know components won't unmount
+  _isMounted = false;
+
+  constructor(props) {
+    super(props);
     this.state = {
+      name: this.props.name,
       chartData: {
-        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-        datasets: [
-          {
-            label: 'Book Price',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            data: [120, 115, 140, 125]
-          }
-        ]
+        labels: [],
+        dataSets: {
+            label: '',
+            backgroundColor: '',
+            data: []
+        }
       }
     }
   }
     // for adding the graph when the api route is set up
-  // componentDidMount() {
-  //   axios.get('/api/overview/?symbol=AAPL')
-  //     .then(res => {
-  //       console.log('res.data', res.data);
-  //       this.setState({
-         
-  //       })
-  //     })
-  //     .catch(err => console.log(err));
-  // }
+  componentDidMount() {
+    this._isMounted = true;
+    const dataArr = [];
+    const editLabelsArr = []
+    axios.get('/company/chart-data?interval=daily&symbol=' + this.state.name)
+      .then(response => {
+        const rawLabelsArr = Object.keys(response.data['Time Series (Daily)']);
+        const respArr = Object.values(response.data['Time Series (Daily)']);
+        // mold the data to make it easier to setState
+        for (let i = 0; i < 30; i += 1) {
+          const currentClose = respArr[i];
+          const currentDay = rawLabelsArr[i];
+          dataArr.push(currentClose['4. close']);
+          editLabelsArr.unshift(currentDay);
+        }
+        // reassign values to use in setState
+        const dataObj = {
+          labels: editLabelsArr,
+          datasets: [{
+              label: ['Closing Price'],
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              data: dataArr,
+          }],
+        }
+        this.setState({ 
+          chartData: dataObj
+        })
+      })
+      .catch(err=>console.log(err));
+  }
 
-  // get chart data from the response object
-  // getChartData() {
-  //   const data = this.state.data;
-  //   if (data.datasets) {
-
-  //   }
-  //   return data
-  // }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
   render() {
     return (
       <div>
-        Historical Price Trend (Annual)
+        Historical Price Trend (Daily)
           <Line
           options={{
             responsive: true
