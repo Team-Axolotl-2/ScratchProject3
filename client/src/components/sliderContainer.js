@@ -10,7 +10,7 @@ export default function SliderContainer(props) {
 
   return (
     <div>
-      <h3>DEPTH GAUGE</h3>
+      {/* <h3>DEPTH GAUGE</h3> */}
       <div className="sliderContainer">
         <Slider className="sliderBar" onSliderChange={props.onSliderChange} depthLevel={props.depthLevel} />
       </div>

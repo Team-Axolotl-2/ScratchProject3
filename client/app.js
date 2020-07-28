@@ -26,6 +26,7 @@ class App extends Component {
       name: '',
       email: this.props.email,
       depthLevel: 0,
+      searchResults: null,
       companyListArray: [
         'Company 1',
         'Company 2',
@@ -38,8 +39,9 @@ class App extends Component {
       depthLevel: 1,
     };
     this.onSearchClick = this.onSearchClick.bind(this);
+    this.SearchSelector = this.SearchSelector.bind(this);
     this.onSliderChange = this.onSliderChange.bind(this);
-    this.getUser = this.getUser.bind(this)
+    this.getUser = this.getUser.bind(this);
   }
 
   // ! setting the state
@@ -51,7 +53,6 @@ class App extends Component {
     this.setState({companyListArray: setData}) // Set initial state 
   }
 
-
   render() {
     // console.log(this.state) // test to console.log the state
     return (
@@ -62,6 +63,8 @@ class App extends Component {
           render={(props) => (
             <Home
               {...props}
+              searchResults={this.state.searchResults}
+              SearchSelector={this.SearchSelector}
               companyListArray={this.state.companyListArray}
               onSearchClick={this.onSearchClick}
               getUser={this.getUser}
@@ -70,7 +73,16 @@ class App extends Component {
             />
           )}
         />
-        <Route exact path="/companyprofile" component={CompanyProfile} />
+        <Route
+          exact
+          path="/companyprofile"
+          render={(props) => (
+            <CompanyProfile
+              {...props}
+              depthLevel={this.state.depthLevel}
+            />
+          )}
+        />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/settings" component={Settings} />
@@ -84,13 +96,35 @@ class App extends Component {
     console.log('This is email in onSearchClick ' + email)
     e.preventDefault();
     console.log('This is e.target:  ', e.target.company.value);
+    fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${e.target.company.value}&apikey=R4TK10Z7D2U5QEA6`)
+    .then ((res) => {
+      return res.json()
+    })
+    .then (data => {
+      console.log('Search Results Data: ', data);
+      this.setState({searchResults : data, email: email})
+    } )
+
+
+
+  }
+
+
+  // 
+  async SearchSelector(e, email) {
+    // hits if not in the else blox
     const output = this.state.companyListArray;
-    if (output.includes(e.target.company.value)) {
+    if (output.includes(e)) {
       alert('Company has already been added.');
       return;
     }
+    output.push(e);// this is pushing to the array
+    this.setState({ 
+      companyListArray: output,
+      searchResults: null
+    });
 
-    // making the axios request, which should update the db
+    // ! making the axios request, working with the database
     const pushData = e.target.company.value // need to get value outside for async
     if (email){
       // getting the data and returning what we need
@@ -106,12 +140,8 @@ class App extends Component {
       // axios request to add to db
       const upData = await axios.post('http://localhost:3000/api/users/' + email, setData, config)
         // make axios request to update the database
-    } else{ // use the default state
-      output.push(e.target.company.value);
-      this.setState({ companyListArray: output }); // setting the state
     }
   }
-
 
   // function to delete cards from the array
 

@@ -8,8 +8,15 @@
   background-image: url("../assets/sliderBar.png");
 }
 
-#bodyWrap{
+#bodyWrap {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+#depthList {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 9px;
+
 }
