@@ -125,7 +125,7 @@ class App extends Component {
     });
 
     // ! making the axios request, working with the database
-    const pushData = e.target.company.value // need to get value outside for async
+    const pushData = e // need to get value outside for async
     if (email){
       // getting the data and returning what we need
       const data = await axios.get('http://localhost:3000/api/users/' + email)
