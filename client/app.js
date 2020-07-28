@@ -14,11 +14,15 @@ import './styles/styles.scss';
  
 
 
+
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 let setData = []; // stores the user data in async call on line 92
 
+
+// ! Should work on moving this state to home.js. Since the App class is never rerendered after initial load, there are some problems with login
 class App extends Component {
   constructor(props) {
     super(props);
@@ -152,7 +156,7 @@ class App extends Component {
       setData = data.data.favorites
       this.setState({companyListArray: setData})
     } else{
-      setData=["GOOG","FB","AMZN"] // default data
+      setData=[] // default data
       this.setState({companyListArray: setData})
     }
   }
